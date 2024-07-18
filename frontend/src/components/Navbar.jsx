@@ -12,6 +12,7 @@ import {
 } from "./ui/navigation-menu";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
+import logo from '../assets/images/logoblack.png';
 
 const Navbar = () => {
     
@@ -54,13 +55,13 @@ const Navbar = () => {
                 initial={{ height: 0, opacity: 0 }}
                 animate={{
                 height: isScrolled || isHovered ? "100%" : 0,
-                opacity: isScrolled || isHovered ? 1 : 0,
+                opacity: isScrolled || isHovered ? .75 : 0,
                 }}
                 transition={{ duration: 0.2, ease: [0, 0.2, 0.5, 1] }}
             />
-        <div className="grid grid-cols-4 py-4 font-drukwidebold">
+        <div className="grid grid-cols-4 py-4 font-iconaSans">
             <div className="col-span-1 grid place-items-start items-center">
-                <p className="relative mx-4 italic">fiveanddime</p>
+                <img src={logo} className="relative h-8 px-4" />
             </div>
             <div className="col-span-2 grid place-items-center text-sm md:text-lg">
                 <NavigationMenu>

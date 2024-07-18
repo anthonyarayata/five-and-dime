@@ -87,3 +87,9 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Icona Sans';
+  src: url('./assets/fonts/IconaSans.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}

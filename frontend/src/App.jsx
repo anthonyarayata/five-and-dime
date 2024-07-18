@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import LandingPage from './scenes/Landing';
+import LandingPage from './pages/Landing';
 import Feature from './scenes/Feature'; 
 
 function App() {
