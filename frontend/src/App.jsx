@@ -5,7 +5,7 @@ import Feature from './scenes/Feature';
 
 function App() {
   return (
-    <div className='overflow-x-hidden'>
+    <div>
       <Navbar />
       <LandingPage />
       <Feature />

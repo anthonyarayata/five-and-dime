@@ -13,6 +13,7 @@ import {
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import logo from '../assets/images/logoblack.png';
+import smlogo from '../assets/images/smlogoblack.png';
 
 const Navbar = () => {
     
@@ -30,66 +31,67 @@ const Navbar = () => {
         };
     }, []);
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
 
-  const handleHomeClick = () => {
-    if(location.pathname==="/"){
-        window.scrollTo({top:0, behavior: 'smooth'});
+    const handleHomeClick = () => {
+        if(location.pathname==="/"){
+            window.scrollTo({top:0, behavior: 'smooth'});
+        }
     }
-  }
 
     return (
         <header
-        className="fixed top-0 left-0 w-full z-10"
+        className="fixed top-0 left-0 w-full z-50"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         >
             <motion.div
-                className="absolute top-0 left-0 w-full bg-white"
+                className="absolute top-0 left-0 w-full bg-white shadow-sm"
                 initial={{ height: 0, opacity: 0 }}
                 animate={{
                 height: isScrolled || isHovered ? "100%" : 0,
-                opacity: isScrolled || isHovered ? .75 : 0,
+                opacity: isScrolled || isHovered ? .8 : 0,
                 }}
                 transition={{ duration: 0.2, ease: [0, 0.2, 0.5, 1] }}
             />
-        <div className="grid grid-cols-4 py-4 font-iconaSans">
-            <div className="col-span-1 grid place-items-start items-center">
-                <img src={logo} className="relative h-8 px-4" />
-            </div>
-            <div className="col-span-2 grid place-items-center text-sm md:text-lg">
-                <NavigationMenu>
-                    <NavigationMenuList className="grid grid-cols-3">
-                        <NavigationMenuItem className="col-span-1">
-                            <Link href='/' onClick={handleHomeClick}>
-                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()}`}>
-                                        Home
-                                </NavigationMenuLink>
-                            </Link>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem className="col-span-1">
-                            
-                                <NavigationMenuLink className={`${navigationMenuTriggerStyle()}`}>
-                                        Shop
-                                </NavigationMenuLink>
-                
-                        </NavigationMenuItem>
-                        <NavigationMenuItem className="col-span-1">
-                            <NavigationMenuTrigger>Support</NavigationMenuTrigger>
-                        </NavigationMenuItem>
-                    </NavigationMenuList>
-                </NavigationMenu>
-            </div>
-            <div className="col-span-1 grid place-content-end">
+            <div className="grid grid-cols-4 py-1 font-iconaSans">
+                <div className="col-span-1 grid place-items-start items-center">
+                    <img src={logo} className="hidden md:block relative h-8 px-4"/>
+                    <img src={smlogo} className="block md:hidden relative h-8 px-4"/>
+                </div>
+                <div className="col-span-2 grid place-items-center text-sm md:text-lg">
+                    <NavigationMenu>
+                        <NavigationMenuList className="grid grid-cols-3">
+                            <NavigationMenuItem className="col-span-1">
+                                <Link href='/' onClick={handleHomeClick}>
+                                    <NavigationMenuLink className={`${navigationMenuTriggerStyle()}`}>
+                                            Home
+                                    </NavigationMenuLink>
+                                </Link>
+                            </NavigationMenuItem>
+                            <NavigationMenuItem className="col-span-1">
+                                
+                                    <NavigationMenuLink className={`${navigationMenuTriggerStyle()}`}>
+                                            Shop
+                                    </NavigationMenuLink>
+                    
+                            </NavigationMenuItem>
+                            <NavigationMenuItem className="col-span-1">
+                                <NavigationMenuTrigger>Support</NavigationMenuTrigger>
+                            </NavigationMenuItem>
+                        </NavigationMenuList>
+                    </NavigationMenu>
+                </div>
+                <div className="col-span-1 grid place-content-end">
 
+                </div>
             </div>
-        </div>
         </header>
     );
 };
