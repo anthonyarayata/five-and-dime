@@ -52,6 +52,8 @@ const Navbar = () => {
         className="fixed top-0 left-0 w-full z-50"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onTouchStart={handleMouseEnter}
+        onTouchEnd={handleMouseLeave}
         >
             <motion.div
                 className="absolute top-0 left-0 w-full bg-white shadow-sm"
