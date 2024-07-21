@@ -22,7 +22,7 @@ module.exports = {
         iconaSans: ["Icona Sans", "sans-serif"],
       },
       backgroundImage: {
-        'landing-bg': "url('./src/assets/images/background-temp.jpg')",
+        'landing-bg': "url('/images/background-temp.jpg')",
       },
       colors: {
         border: "hsl(var(--border))",

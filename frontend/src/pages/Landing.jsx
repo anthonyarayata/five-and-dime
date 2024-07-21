@@ -1,5 +1,5 @@
 import React from 'react';
-import tagline from '../assets/images/brand-tagline.png';
+import tagline from '/images/brand-tagline.png';
 
 const LandingPage = () => {
   return (

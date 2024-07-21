@@ -12,10 +12,10 @@ import {
 } from "./ui/navigation-menu";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/logowhite.png';
-import smlogo from '../assets/images/smlogowhite.png';
-import logoblack from '../assets/images/logoblack.png';
-import smlogoblack from '../assets/images/smlogoblack.png';
+import logo from '/images/logowhite.png';
+import smlogo from '/images/smlogowhite.png';
+import logoblack from '/images/logoblack.png';
+import smlogoblack from '/images/smlogoblack.png';
 
 const Navbar = () => {
     
