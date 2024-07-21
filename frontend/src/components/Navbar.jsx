@@ -16,6 +16,7 @@ import logo from '/images/logowhite.png';
 import smlogo from '/images/smlogowhite.png';
 import logoblack from '/images/logoblack.png';
 import smlogoblack from '/images/smlogoblack.png';
+import { ListItem } from "@mui/material";
 
 const Navbar = () => {
     
@@ -90,6 +91,12 @@ const Navbar = () => {
                             </NavigationMenuItem>
                             <NavigationMenuItem className="col-span-1">
                                 <NavigationMenuTrigger>Support</NavigationMenuTrigger>
+                                <NavigationMenuContent>
+                                    <ul className="flex flex-col py-2 text-sm font-iconaSans ">
+                                        <ListItem><span className="animated-underline-content">Payment</span></ListItem>
+                                        <ListItem><span className="animated-underline-content">Shipping</span></ListItem>
+                                    </ul>
+                                </NavigationMenuContent>
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>

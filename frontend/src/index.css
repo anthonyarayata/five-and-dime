@@ -23,7 +23,7 @@
       --border: 240 5.9% 90%;
       --input: 240 5.9% 90%;
       --ring: 240 10% 3.9%;
-      --radius: 0.5rem;
+      --radius: 0rem;
       --chart-1: 12 76% 61%;
       --chart-2: 173 58% 39%;
       --chart-3: 197 37% 24%;
@@ -73,10 +73,19 @@
       @apply relative
     }
     .animated-underline::after {
-      @apply content-[''] bg-black h-[2px] w-[0%] left-0 -bottom-[-9px] rounded-xl absolute duration-300
+      @apply content-[''] bg-black h-[1px] w-[0%] left-0 -bottom-[-9px] rounded-xl absolute duration-100
     }
     .animated-underline:hover::after{
       @apply w-[100%]
+    }
+    .animated-underline-content {
+      @apply relative mb-1; /* Adjusted margin-bottom for span*/
+    }
+    .animated-underline-content::after {
+      @apply content-[''] bg-black h-[1px] w-[0%] left-0 bottom-[-2px] rounded-xl absolute duration-100; /* Adjusted bottom position for span*/
+    }
+    .animated-underline-content:hover::after {
+      @apply w-[100%];
     }
   }
 
