@@ -62,7 +62,7 @@ const Navbar = () => {
                 }}
                 transition={{ duration: 0.2, ease: [0, 0.2, 0.5, 1] }}
             />
-            <div className={`grid grid-cols-4 py-1 font-iconaSans text-white ${isScrolled || isHovered ? 'text-black' : ''}`}>
+            <div className={`grid grid-cols-4 py-1 font-iconaSans ${isScrolled || isHovered ? 'text-black' : 'text-white'}`}>
                 <div className="col-span-1 grid place-items-start items-center">
                     <img src={isScrolled || isHovered ? logoblack : logo} 
                         className="hidden md:block relative h-8 px-4"/>
@@ -73,7 +73,7 @@ const Navbar = () => {
                     <NavigationMenu>
                         <NavigationMenuList className="grid grid-cols-3">
                             <NavigationMenuItem className="col-span-1">
-                                <Link href='/' onClick={handleHomeClick}>
+                                <Link to='/' onClick={handleHomeClick}>
                                     <NavigationMenuLink className={`${navigationMenuTriggerStyle()}`}>
                                             Home
                                     </NavigationMenuLink>
