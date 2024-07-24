@@ -17,6 +17,7 @@ import smlogo from '/images/smlogowhite.png';
 import logoblack from '/images/logoblack.png';
 import smlogoblack from '/images/smlogoblack.png';
 import { ListItem } from "@mui/material";
+import ShoppingBagSharpIcon from '@mui/icons-material/ShoppingBagSharp';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -121,8 +122,13 @@ const Navbar = () => {
                         </NavigationMenuList>
                     </NavigationMenu>
                 </div>
-                <div className="col-span-1 grid place-content-end">
-
+                <div className="col-span-1 grid place-content-end items-center text-xs md:text-sm">
+                    <motion.div
+                        className="relative h-8 px-4"
+                        animate={controls}
+                    >
+                        <ShoppingBagSharpIcon/>
+                    </motion.div>
                 </div>
             </motion.div>
         </header>
