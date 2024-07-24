@@ -73,7 +73,7 @@
       @apply relative
     }
     .animated-underline::after {
-      @apply content-[''] bg-black h-[1px] w-[0%] left-0 -bottom-[-9px] rounded-xl absolute duration-100
+      @apply content-[''] bg-black h-[1px] w-[0%] left-0 -bottom-[-9px] rounded-xl absolute duration-200
     }
     .animated-underline:hover::after{
       @apply w-[100%]
@@ -82,7 +82,7 @@
       @apply relative mb-1; /* Adjusted margin-bottom for span*/
     }
     .animated-underline-content::after {
-      @apply content-[''] bg-black h-[1px] w-[0%] left-0 bottom-[-2px] rounded-xl absolute duration-100; /* Adjusted bottom position for span*/
+      @apply content-[''] bg-black h-[1px] w-[0%] left-0 bottom-[-2px] rounded-xl absolute duration-200; /* Adjusted bottom position for span*/
     }
     .animated-underline-content:hover::after {
       @apply w-[100%];

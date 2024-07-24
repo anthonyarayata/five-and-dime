@@ -1,5 +1,12 @@
 import React from 'react'
 import PageWrapper from '@/components/PageWrapper';
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+  } from "@/components/ui/carousel";
 
 const Feature = () => {
     return (
@@ -33,7 +40,7 @@ const Feature = () => {
                     <h1 className='font-drukwidebold'>Feature ahh section</h1>
                 </div>
                 <div className='col-span-4 col-start-2 row-span-4 row-start-3 bg-black'>
-
+                    
                 </div>
             </div>
             
