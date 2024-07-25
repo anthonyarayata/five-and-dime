@@ -22,8 +22,10 @@ const Feature = () => {
                     <div className='col-span-3 row-span-8 bg-slate-300'></div>
                     <div className='col-span-3 row-span-4 bg-slate-400'></div>
                     <div className='col-span-5 row-span-4 bg-slate-500'></div>
-                    <div className='col-span-full row-span-1 flex justify-center items-center md:pr-6 text-2xl bg-gray-500'>
-                        <h1 className='font-drukwidebold'>Bottom section</h1>
+                    <div className='col-span-full row-span-1 grid grid-cols-3 grid-rows-5'>
+                        <div className='col-span-1 col-start-2 row-span-3 row-start-2 border border-black flex items-center justify-center'>
+                            <h1 className='font-iconaSans text-xl'>SEE MORE IN SHOP</h1>
+                        </div>   
                     </div>
                 </div>
 
