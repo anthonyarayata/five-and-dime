@@ -112,7 +112,7 @@ const Navbar = () => {
                                         Support
                                     </motion.div>
                                 </NavigationMenuTrigger>
-                                <NavigationMenuContent className={`transition duration-200 ease-in-out`}>
+                                <NavigationMenuContent className={`transition duration-300 ease-in-out`}>
                                     <ul className="flex flex-col py-2 text-sm font-iconaSans">
                                         <ListItem><span className="animated-underline-content">Payment</span></ListItem>
                                         <ListItem><span className="animated-underline-content">Shipping</span></ListItem>
