@@ -44,7 +44,7 @@ const NavigationMenuTrigger = React.forwardRef(({ className, children, ...props 
     {...props}>
     {children}{" "}
     <ChevronDown
-      className="relative top-[1px] ml-1 h-3 w-3 transition duration-100 group-data-[state=open]:rotate-180"
+      className="relative top-[1px] ml-3 md:ml-2 h-2 w-2 md:h-3 md:w-3 transition duration-100 group-data-[state=open]:rotate-180"
       aria-hidden="true" />
   </NavigationMenuPrimitive.Trigger>
 ))
@@ -69,7 +69,7 @@ const NavigationMenuViewport = React.forwardRef(({ className, ...props }, ref) =
     initial={{ opacity: 0, y: -10 }}
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: -10 }}
-    transition={{ duration: 0.1, ease: [0, 0.2, 0.5, 1] }}
+    transition={{ duration: 0.1 }}
   >
     <NavigationMenuPrimitive.Viewport
       className={cn(

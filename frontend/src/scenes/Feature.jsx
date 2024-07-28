@@ -7,6 +7,11 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
+import featureImage1 from '/images/Feature/FeatureTest1.jpg';
+
+const FeatureImgs = {
+    img: [featureImage1,]
+}
 
 const Feature = () => {
     return (
@@ -34,9 +39,13 @@ const Feature = () => {
                     <div className='col-span-full row-span-1 flex justify-center items-end md:pr-6 text-2xl'>
                         <h1 className='font-drukwidebold'>Feature ahh section</h1>
                     </div>
-                    <div className='col-span-4 col-start-2 row-span-4 row-start-3 bg-black'>
-
-                    </div>
+                    <Carousel className='col-span-4 col-start-2 row-span-4 row-start-3'>
+                        <CarouselItem>
+                            <div>
+                                <img src={featureImage1}/>
+                            </div>
+                        </CarouselItem>
+                    </Carousel>
                     <div className='col-span-4 col-start-2 row-span-1 row-start-8 my-2 grid grid-rows-2'>
                         <div className='col-span-full row-span-1 border border-black flex items-center justify-center'>
                             <h1 className='font-iconaSans'>SEE MORE IN SHOP</h1>

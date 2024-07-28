@@ -11,10 +11,10 @@ import {
 } from "./ui/navigation-menu";
 import { motion, useAnimation } from "framer-motion";
 import { Link } from 'react-router-dom';
-import logo from '/images/logowhite.png';
-import smlogo from '/images/smlogowhite.png';
-import logoblack from '/images/logoblack.png';
-import smlogoblack from '/images/smlogoblack.png';
+import logo from '/images/Navbar/logowhite.png';
+import smlogo from '/images/Navbar/smlogowhite.png';
+import logoblack from '/images/Navbar/logoblack.png';
+import smlogoblack from '/images/Navbar/smlogoblack.png';
 import { ListItem } from "@mui/material";
 import ShoppingBagSharpIcon from '@mui/icons-material/ShoppingBagSharp';
 
@@ -68,7 +68,7 @@ const Navbar = () => {
                     height: isScrolled || isHovered ? "100%" : 0,
                     opacity: isScrolled || isHovered ? 1 : 0,
                 }}
-                transition={{ duration: 0.2, ease: [0, 0.2, 0.5, 1] }}
+                transition={{ duration: 0.3, ease: [0, 0.2, 0.5, 1] }}
             />
             <motion.div
                 className={`grid grid-cols-4 py-1 font-iconaSans ${isScrolled || isHovered ? 'text-black' : 'text-white'}`}
@@ -86,13 +86,13 @@ const Navbar = () => {
                         animate={controls}
                     />
                 </div>
-                <div className="col-span-2 grid place-items-center text-sm md:text-lg">
+                <div className="col-span-2 grid place-items-center">
                     <NavigationMenu>
-                        <NavigationMenuList className="flex justify-between w-full gap-6 md:gap-16">
+                        <NavigationMenuList className="flex justify-between w-full gap-8 md:gap-16">
                             <NavigationMenuItem className="relative">
                                 <Link to='/' onClick={handleHomeClick}>
                                     <motion.div
-                                        className={navigationMenuTriggerStyle()}
+                                        className={`${navigationMenuTriggerStyle()} text-xs md:text-sm`}
                                         animate={controls}
                                     >
                                         Home
@@ -101,7 +101,7 @@ const Navbar = () => {
                             </NavigationMenuItem>
                             <NavigationMenuItem className="relative">
                                 <motion.div
-                                    className={navigationMenuTriggerStyle()}
+                                    className={`${navigationMenuTriggerStyle()} text-xs md:text-sm`}
                                     animate={controls}
                                 >
                                     Shop
@@ -114,14 +114,14 @@ const Navbar = () => {
                             >
                                 <NavigationMenuTrigger>
                                     <motion.div
-                                        className={navigationMenuTriggerStyle()}
+                                        className={`${navigationMenuTriggerStyle()} text-xs md:text-sm`}
                                         animate={controls}
                                     >
                                         Support
                                     </motion.div>
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent>
-                                    <ul className="flex flex-col py-2 text-sm font-iconaSans">
+                                    <ul className="flex flex-col py-2 text-xs md:text-sm font-iconaSans">
                                         <ListItem><span className="animated-underline-content">Payment</span></ListItem>
                                         <ListItem><span className="animated-underline-content">Shipping</span></ListItem>
                                     </ul>
