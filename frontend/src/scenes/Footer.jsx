@@ -10,7 +10,7 @@ const Footer = () => {
         <div className='pt-12 md:pt-8 bg-zinc-950 text-white'>
             <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-3 gap-2">
                 <div className='px-4 col-span-full row-span-1 row-start-1 grid grid-rows-3'>
-                    <h4 className="text-sm font-drukwidebold leading-none row-span-1 row-start-1 text-center md:text-start">Five and Dime</h4>
+                    <h4 className="text-sm font-drukwidebold leading-none row-span-1 row-start-1 text-center mt-8 md:mt-0 md:text-start">Five and Dime</h4>
                     <p className="text-xs text-muted-foreground font-iconaSans row-span-1 row-start-3 text-center md:text-start">
                         A Filipino clothing brand.
                     </p>
@@ -21,7 +21,7 @@ const Footer = () => {
                 {/*Desktop Layout*/}
                 <div className="hidden px-4 col-span-full row-span-1 row-start-3 md:grid grid-cols-2">
                     <div className='col-span-1 col-start-1 grid grid-cols-2'>
-                        <div className='col-span-1 grid grid-cols-9 text-sm'>
+                        <div className='col-span-1 grid grid-cols-8 text-sm'>
                             <div className='col-span-1'>
                                 <a href="https://www.facebook.com/fiveanddime.cvt" target="_blank" rel="noopener noreferrer">
                                     <FacebookIcon className='text-xl' />

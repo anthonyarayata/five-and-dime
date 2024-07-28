@@ -37,6 +37,12 @@ const Feature = () => {
                     <div className='col-span-4 col-start-2 row-span-4 row-start-3 bg-black'>
 
                     </div>
+                    <div className='col-span-4 col-start-2 row-span-1 row-start-8 my-2 grid grid-rows-2'>
+                        <div className='col-span-full row-span-1 border border-black flex items-center justify-center'>
+                            <h1 className='font-iconaSans'>SEE MORE IN SHOP</h1>
+                        </div>
+                    </div>
+
                 </div>
             </PageWrapper>
         </>

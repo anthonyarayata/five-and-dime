@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
@@ -22,6 +21,7 @@ import ShoppingBagSharpIcon from '@mui/icons-material/ShoppingBagSharp';
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
+    const [isSupportHovered, setIsSupportHovered] = useState(false);
     const controls = useAnimation();
 
     const handleScroll = () => {
@@ -49,6 +49,9 @@ const Navbar = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
+
+    const handleSupportMouseEnter = () => setIsSupportHovered(true);
+    const handleSupportMouseLeave = () => setIsSupportHovered(false);
 
     return (
         <header
@@ -85,8 +88,8 @@ const Navbar = () => {
                 </div>
                 <div className="col-span-2 grid place-items-center text-sm md:text-lg">
                     <NavigationMenu>
-                        <NavigationMenuList className="grid grid-cols-3">
-                            <NavigationMenuItem className="col-span-1">
+                        <NavigationMenuList className="flex justify-between w-full gap-6 md:gap-16">
+                            <NavigationMenuItem className="relative">
                                 <Link to='/' onClick={handleHomeClick}>
                                     <motion.div
                                         className={navigationMenuTriggerStyle()}
@@ -96,7 +99,7 @@ const Navbar = () => {
                                     </motion.div>
                                 </Link>
                             </NavigationMenuItem>
-                            <NavigationMenuItem className="col-span-1">
+                            <NavigationMenuItem className="relative">
                                 <motion.div
                                     className={navigationMenuTriggerStyle()}
                                     animate={controls}
@@ -104,15 +107,20 @@ const Navbar = () => {
                                     Shop
                                 </motion.div>
                             </NavigationMenuItem>
-                            <NavigationMenuItem className="col-span-1">
+                            <NavigationMenuItem 
+                                className="relative"
+                                onMouseEnter={handleSupportMouseEnter}
+                                onMouseLeave={handleSupportMouseLeave}
+                            >
                                 <NavigationMenuTrigger>
                                     <motion.div
+                                        className={navigationMenuTriggerStyle()}
                                         animate={controls}
                                     >
                                         Support
                                     </motion.div>
                                 </NavigationMenuTrigger>
-                                <NavigationMenuContent className={`transition duration-300 ease-in-out`}>
+                                <NavigationMenuContent>
                                     <ul className="flex flex-col py-2 text-sm font-iconaSans">
                                         <ListItem><span className="animated-underline-content">Payment</span></ListItem>
                                         <ListItem><span className="animated-underline-content">Shipping</span></ListItem>
