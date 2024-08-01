@@ -41,7 +41,7 @@ const Feature = () => {
             <div className='col-span-5 row-span-4 bg-slate-500'></div>
             <div className='col-span-full row-span-1 grid grid-cols-3 grid-rows-5'>
                 <div className='col-span-1 col-start-2 row-span-3 row-start-2 border border-black flex items-center justify-center'>
-                    <h1 className='font-iconaSans text-xl'>SEE MORE IN SHOP</h1>
+                    <h1 className='font-iconaSans text-lg'>SEE MORE IN SHOP</h1>
                 </div>   
             </div>
         </div>
