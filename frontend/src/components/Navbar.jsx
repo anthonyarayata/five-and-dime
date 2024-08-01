@@ -128,7 +128,7 @@ const Navbar = () => {
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
                         </NavigationMenuList>
-                    </NavigationMenu>
+                    </NavigationMenu> 
                 </div>
                 <div className="col-span-1 grid place-content-end items-center text-xs md:text-sm">
                     <motion.div
