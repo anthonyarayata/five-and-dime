@@ -42,25 +42,47 @@ const Navbar = () => {
         });
     }, [isScrolled, isHovered, controls]);
 
-    const handleMouseEnter = () => setIsHovered(true);
-    const handleMouseLeave = () => setIsHovered(false);
+    const handlePointerEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handlePointerLeave = () => {
+        setIsHovered(false);
+    };
+
     const handleHomeClick = () => {
         if (location.pathname === "/") {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
 
-    const handleSupportMouseEnter = () => setIsSupportHovered(true);
-    const handleSupportMouseLeave = () => setIsSupportHovered(false);
+    const handleSupportPointerEnter = () => {
+        setIsSupportHovered(true);
+    };
+
+    const handleSupportPointerLeave = () => {
+        setIsSupportHovered(false);
+    };
+
+    useEffect(() => {
+        const header = document.querySelector('header');
+        const supportItem = document.querySelector('.support-item');
+
+        header.addEventListener('pointerenter', handlePointerEnter);
+        header.addEventListener('pointerleave', handlePointerLeave);
+        supportItem.addEventListener('pointerenter', handleSupportPointerEnter);
+        supportItem.addEventListener('pointerleave', handleSupportPointerLeave);
+
+        return () => {
+            header.removeEventListener('pointerenter', handlePointerEnter);
+            header.removeEventListener('pointerleave', handlePointerLeave);
+            supportItem.removeEventListener('pointerenter', handleSupportPointerEnter);
+            supportItem.removeEventListener('pointerleave', handleSupportPointerLeave);
+        };
+    }, []);
 
     return (
-        <header
-            className="fixed top-0 left-0 w-full z-50"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onTouchStart={handleMouseEnter}
-            onTouchEnd={handleMouseLeave}
-        >
+        <header className="fixed top-0 left-0 w-full z-50">
             <motion.div
                 className="absolute top-0 left-0 w-full bg-white shadow-sm"
                 initial={{ height: 0, opacity: 0 }}
@@ -107,10 +129,8 @@ const Navbar = () => {
                                     Shop
                                 </motion.div>
                             </NavigationMenuItem>
-                            <NavigationMenuItem 
-                                className="relative"
-                                onMouseEnter={handleSupportMouseEnter}
-                                onMouseLeave={handleSupportMouseLeave}
+                            <NavigationMenuItem
+                                className="relative support-item"
                             >
                                 <NavigationMenuTrigger>
                                     <motion.div
@@ -128,14 +148,14 @@ const Navbar = () => {
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
                         </NavigationMenuList>
-                    </NavigationMenu> 
+                    </NavigationMenu>
                 </div>
                 <div className="col-span-1 grid place-content-end items-center text-xs md:text-sm">
                     <motion.div
                         className="relative h-8 px-4"
                         animate={controls}
                     >
-                        <ShoppingBagSharpIcon/>
+                        <ShoppingBagSharpIcon />
                     </motion.div>
                 </div>
             </motion.div>
