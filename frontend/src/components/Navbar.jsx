@@ -10,7 +10,7 @@ import {
   NavigationMenuViewport,
 } from "./ui/navigation-menu";
 import { motion, useAnimation } from "framer-motion";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '/images/Navbar/logowhite.png';
 import smlogo from '/images/Navbar/smlogowhite.png';
 import logoblack from '/images/Navbar/logoblack.png';
@@ -24,6 +24,7 @@ const Navbar = () => {
     const [isSupportHovered, setIsSupportHovered] = useState(false);
     const [isTouched, setIsTouched] = useState(false);
     const controls = useAnimation();
+    const location = useLocation();
 
     const handleScroll = () => {
         setIsScrolled(window.scrollY > 50);
@@ -46,10 +47,10 @@ const Navbar = () => {
 
     useEffect(() => {
         controls.start({
-            color: isScrolled || isHovered || isTouched ? 'black' : 'white',
+            color: isScrolled || isHovered || isTouched || ['/store', '/payment', '/shipping'].includes(location.pathname) ? 'black' : 'white',
             transition: { duration: 0.2, ease: [0, 0.2, 0.5, 1] },
         });
-    }, [isScrolled, isHovered, isTouched, controls]);
+    }, [isScrolled, isHovered, isTouched, location.pathname, controls]);
 
     const handlePointerEnter = () => {
         setIsHovered(true);
@@ -96,29 +97,31 @@ const Navbar = () => {
         };
     }, []);
 
+    const notMainPage = ['/store', '/payment', '/shipping'].includes(location.pathname);
+
     return (
         <header className="fixed top-0 left-0 w-full z-50">
             <motion.div
-                className="absolute top-0 left-0 w-full bg-white shadow-sm"
+                className="absolute top-0 left-0 w-full bg-white shadow-md"
                 initial={{ height: 0, opacity: 0 }}
                 animate={{
-                    height: isScrolled || isHovered || isTouched ? "100%" : 0,
-                    opacity: isScrolled || isHovered || isTouched ? 1 : 0,
+                    height: isScrolled || isHovered || isTouched || notMainPage ? "100%" : 0,
+                    opacity: isScrolled || isHovered || isTouched || notMainPage ? 1 : 0,
                 }}
                 transition={{ duration: 0.3, ease: [0, 0.2, 0.5, 1] }}
             />
             <motion.div
-                className={`grid grid-cols-4 py-1 font-iconaSans ${isScrolled || isHovered || isTouched ? 'text-black' : 'text-white'}`}
+                className={`grid grid-cols-4 py-1 font-iconaSans ${isScrolled || isHovered || isTouched || notMainPage ? 'text-black' : 'text-white'}`}
                 animate={controls}
             >
                 <div className="col-span-1 grid place-items-start items-center">
                     <motion.img
-                        src={isScrolled || isHovered || isTouched ? logoblack : logo}
+                        src={isScrolled || isHovered || isTouched || notMainPage ? logoblack : logo}
                         className="hidden md:block relative h-8 px-4"
                         animate={controls}
                     />
                     <motion.img
-                        src={isScrolled || isHovered || isTouched ? smlogoblack : smlogo}
+                        src={isScrolled || isHovered || isTouched || notMainPage ? smlogoblack : smlogo}
                         className="block md:hidden relative h-8 px-4"
                         animate={controls}
                     />
@@ -137,12 +140,14 @@ const Navbar = () => {
                                 </Link>
                             </NavigationMenuItem>
                             <NavigationMenuItem className="relative">
-                                <motion.div
-                                    className={`${navigationMenuTriggerStyle()} text-xs md:text-sm`}
-                                    animate={controls}
-                                >
-                                    Shop
-                                </motion.div>
+                                <Link to='/store'>
+                                    <motion.div
+                                        className={`${navigationMenuTriggerStyle()} text-xs md:text-sm`}
+                                        animate={controls}
+                                    >
+                                        Shop
+                                    </motion.div>
+                                </Link>
                             </NavigationMenuItem>
                             <NavigationMenuItem
                                 className="relative support-item"
@@ -157,8 +162,16 @@ const Navbar = () => {
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent>
                                     <ul className="flex flex-col py-2 text-xs md:text-sm font-iconaSans">
-                                        <ListItem><span className="animated-underline-content">Payment</span></ListItem>
-                                        <ListItem><span className="animated-underline-content">Shipping</span></ListItem>
+                                        <ListItem>
+                                            <Link to='/payment'>
+                                                <span className="animated-underline-content text-xs md:text-sm">Payment</span>
+                                            </Link>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Link to='/shipping'>
+                                                <span className="animated-underline-content text-xs md:text-sm">Shipping</span>
+                                            </Link>
+                                        </ListItem>
                                     </ul>
                                 </NavigationMenuContent>
                             </NavigationMenuItem>

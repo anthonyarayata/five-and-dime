@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StorePage = () => {
+const Payment = () => {
     return (
         <>
         <div className='grid h-screen max-w-full bg-white'>
@@ -10,4 +10,4 @@ const StorePage = () => {
     );
 };
 
-export default StorePage;
+export default Payment;

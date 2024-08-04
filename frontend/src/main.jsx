@@ -6,6 +6,9 @@ import './index.css';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './Layout';
 import MainPage from './pages/MainPage';
+import StorePage from './pages/StorePage';
+import Payment from './pages/Payment';
+import Shipping from './pages/Shipping';
 
 // Define routes
 const router = createBrowserRouter([
@@ -16,6 +19,18 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <MainPage />,
+      },
+      {
+        path: 'store',
+        element: <StorePage />,
+      },
+      {
+        path: 'payment',
+        element: <Payment />,
+      },
+      {
+        path: 'shipping',
+        element: <Shipping />,
       },
     ],
   },
