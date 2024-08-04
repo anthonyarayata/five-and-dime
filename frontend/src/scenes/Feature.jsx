@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
     Carousel,
     CarouselContent,
@@ -50,9 +51,9 @@ const Feature = () => {
                 
             </div>
             <div className='col-span-full row-span-1 grid grid-cols-3 grid-rows-5'>
-                <div className='col-span-1 col-start-2 row-span-3 row-start-2 border border-black flex items-center justify-center'>
+                <Link to='/store' className='col-span-1 col-start-2 row-span-3 row-start-2 border border-black flex items-center justify-center'>
                     <h1 className='font-iconaSans text-lg'>SEE MORE IN SHOP</h1>
-                </div>   
+                </Link>
             </div>
         </div>
 
@@ -81,11 +82,11 @@ const Feature = () => {
                     </div>
                 </Carousel>
             </div>
-            <div className='col-span-6 col-start-1 row-span-1 row-start-5 mx-5 my-12 grid grid-rows-2 text-sm md:text-xl'>
+            <Link to='/store' className='col-span-6 col-start-1 row-span-1 row-start-5 mx-5 my-12 grid grid-rows-2 text-sm md:text-xl'>
                 <div className='col-span-full row-span-1 border border-black flex items-center justify-center'>
                     <h1 className='font-iconaSans'>SEE MORE IN SHOP</h1>
                 </div>
-            </div>
+            </Link>
         </div>
         </>
     );

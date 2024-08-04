@@ -4,11 +4,14 @@ import * as ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import { HelmetProvider } from 'react-helmet-async';
+import { Provider } from 'react-redux';
+import store from './store';
 import Layout from './Layout';
 import MainPage from './pages/MainPage';
 import StorePage from './pages/StorePage';
 import Payment from './pages/Payment';
 import Shipping from './pages/Shipping';
+
 
 // Define routes
 const router = createBrowserRouter([
@@ -38,8 +41,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HelmetProvider>
-      <RouterProvider router={router} />
-    </HelmetProvider>
+    <Provider store={store}>
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
+    </Provider>
   </React.StrictMode>,
 );
