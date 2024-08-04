@@ -22,25 +22,34 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const [isSupportHovered, setIsSupportHovered] = useState(false);
+    const [isTouched, setIsTouched] = useState(false);
     const controls = useAnimation();
 
     const handleScroll = () => {
         setIsScrolled(window.scrollY > 50);
     };
 
+    const handleTouchOutside = (event) => {
+        if (!event.target.closest('header')) {
+            setIsTouched(false);
+        }
+    };
+
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
+        document.addEventListener("touchstart", handleTouchOutside);
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            document.removeEventListener("touchstart", handleTouchOutside);
         };
     }, []);
 
     useEffect(() => {
         controls.start({
-            color: isScrolled || isHovered ? 'black' : 'white',
+            color: isScrolled || isHovered || isTouched ? 'black' : 'white',
             transition: { duration: 0.2, ease: [0, 0.2, 0.5, 1] },
         });
-    }, [isScrolled, isHovered, controls]);
+    }, [isScrolled, isHovered, isTouched, controls]);
 
     const handlePointerEnter = () => {
         setIsHovered(true);
@@ -48,6 +57,10 @@ const Navbar = () => {
 
     const handlePointerLeave = () => {
         setIsHovered(false);
+    };
+
+    const handleTouchStart = () => {
+        setIsTouched(true);
     };
 
     const handleHomeClick = () => {
@@ -70,12 +83,14 @@ const Navbar = () => {
 
         header.addEventListener('pointerenter', handlePointerEnter);
         header.addEventListener('pointerleave', handlePointerLeave);
+        header.addEventListener('touchstart', handleTouchStart);
         supportItem.addEventListener('pointerenter', handleSupportPointerEnter);
         supportItem.addEventListener('pointerleave', handleSupportPointerLeave);
 
         return () => {
             header.removeEventListener('pointerenter', handlePointerEnter);
             header.removeEventListener('pointerleave', handlePointerLeave);
+            header.removeEventListener('touchstart', handleTouchStart);
             supportItem.removeEventListener('pointerenter', handleSupportPointerEnter);
             supportItem.removeEventListener('pointerleave', handleSupportPointerLeave);
         };
@@ -87,23 +102,23 @@ const Navbar = () => {
                 className="absolute top-0 left-0 w-full bg-white shadow-sm"
                 initial={{ height: 0, opacity: 0 }}
                 animate={{
-                    height: isScrolled || isHovered ? "100%" : 0,
-                    opacity: isScrolled || isHovered ? 1 : 0,
+                    height: isScrolled || isHovered || isTouched ? "100%" : 0,
+                    opacity: isScrolled || isHovered || isTouched ? 1 : 0,
                 }}
                 transition={{ duration: 0.3, ease: [0, 0.2, 0.5, 1] }}
             />
             <motion.div
-                className={`grid grid-cols-4 py-1 font-iconaSans ${isScrolled || isHovered ? 'text-black' : 'text-white'}`}
+                className={`grid grid-cols-4 py-1 font-iconaSans ${isScrolled || isHovered || isTouched ? 'text-black' : 'text-white'}`}
                 animate={controls}
             >
                 <div className="col-span-1 grid place-items-start items-center">
                     <motion.img
-                        src={isScrolled || isHovered ? logoblack : logo}
+                        src={isScrolled || isHovered || isTouched ? logoblack : logo}
                         className="hidden md:block relative h-8 px-4"
                         animate={controls}
                     />
                     <motion.img
-                        src={isScrolled || isHovered ? smlogoblack : smlogo}
+                        src={isScrolled || isHovered || isTouched ? smlogoblack : smlogo}
                         className="block md:hidden relative h-8 px-4"
                         animate={controls}
                     />
